@@ -9,17 +9,6 @@ import {AddNewTodo} from '../../redux/actions';
 
 const AddTodo = () => {
   const [inputValue, setInputValue] = useState('');
-  const [item, setItem] = useState([]);
-  const onCreate = (value) =>{
-    setItem([...item, value]);
-  }
-  console.log(item);
-
-  
-
-  useEffect(() => {
-    AddNewTodo(item);
-  }, [item])
 
   return (
     <form className="new-todo" >
@@ -34,7 +23,7 @@ const AddTodo = () => {
         />
         <Button
           variant="outline-success"
-          onClick={() => onCreate({
+          onClick={() => AddNewTodo({
             value: inputValue,
             id: Date.now(),
             completed: false
@@ -46,7 +35,6 @@ const AddTodo = () => {
     </form>
   );
 }
-
 
 const mapDispatchToProps = {
   AddNewTodo: AddNewTodo
