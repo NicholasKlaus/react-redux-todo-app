@@ -1,1 +1,5 @@
-export const CREATE_TODO = 'TODOS/CREATE_TODO'
+export const CREATE_TODO = 'TODOS/CREATE_TODO';
+export const TOGGLE_TODO = 'TODOS/TOGGLE_TODO';
+export const DELETE_TODO = 'TODOS/DELETE_TODO';
+export const SHOW_ALERT = 'APP/SHOW_ALERT';
+export const HIDE_ALERT = 'APP/HIDE_ALERT';

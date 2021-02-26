@@ -1,20 +1,29 @@
 import React from 'react';
 import {Button, InputGroup} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {toggleTodo, deleteTodo} from '../../redux/actions';
 
-const TodoItem = ({todo}) => {
+const TodoItem = ({todo, toggleTodo, deleteTodo}) => {
 
   return(
-    <li className="task-list__item">
+    <li className={`task-list__item ${(todo.completed === true) ? 'checked' : ''}`}>
       <div className='wrapper'>
         <InputGroup.Checkbox
           className="checkbox"
           aria-label="Checkbox for following text input"
+          onChange={() => toggleTodo(todo.id)}
+          checked={todo.completed}
         />
-        <div className='text-wrap'> {todo.value} </div>
+        <div className='text-wrap'> {todo.title} </div>
       </div>
-      <Button variant="outline-danger">&times;</Button>
+      <Button onClick={() => deleteTodo(todo.id)} variant="outline-danger">&times;</Button>
     </li>
   );
 }
 
-export default TodoItem;
+const mapDispatchToProps = {
+  toggleTodo,
+  deleteTodo
+}
+
+export default connect(null, mapDispatchToProps)(TodoItem);
