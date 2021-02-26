@@ -4,17 +4,18 @@ import {
   InputGroup,
   FormControl
 } from 'react-bootstrap';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {AddNewTodo, showAlert} from '../../redux/actions';
 import {Alert} from '../Alert/Alert';
 
-const AddTodo = ({AddNewTodo, showAlert, alert}) => {
+export const AddTodo = () => {
   const [inputValue, setInputValue] = useState('');
+  const alert = useSelector(state => state.app.alert);
+  const dispatch = useDispatch();
 
   const onCreate = () => {
-    
     if (!inputValue.trim()){
-      return showAlert('You cannot add an empty string');
+      return dispatch(showAlert('You cannot add an empty string'));
     }
 
     const newTodo = {
@@ -22,7 +23,9 @@ const AddTodo = ({AddNewTodo, showAlert, alert}) => {
       title: inputValue,
       completed: false
     }
-    AddNewTodo(newTodo);
+
+    dispatch(AddNewTodo(newTodo));
+
     setInputValue("");
   }
 
@@ -46,14 +49,3 @@ const AddTodo = ({AddNewTodo, showAlert, alert}) => {
     </div>
   );
 }
-
-const mapDispatchToProps = {
-  AddNewTodo,
-  showAlert 
-}
-
-const mapStateToProps = (state) => ({
-  alert: state.app.alert
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddTodo);

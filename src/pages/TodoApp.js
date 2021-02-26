@@ -1,7 +1,7 @@
 import React from 'react';
-import AddTodo from '../components/AddTodo/AddTodo';
+import {AddTodo} from '../components/AddTodo/AddTodo';
 import { Header } from '../components/header/header';
-import TodoList from '../components/TodoList/TodoList';
+import {TodoList} from '../components/TodoList/TodoList';
 
 
 export const TodoApp = () => {
