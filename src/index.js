@@ -8,11 +8,16 @@ import {rootReducer} from "./redux/rootReducer";
 import {Provider} from "react-redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 
-const store = createStore(rootReducer, composeWithDevTools(
+const persistedState = localStorage.getItem('MyState') ? JSON.parse(localStorage.getItem('MyState')) : {};
+const store = createStore(rootReducer, persistedState, composeWithDevTools(
   applyMiddleware(
     thunk
   )
 ));
+
+store.subscribe(()=>{
+  localStorage.setItem('MyState', JSON.stringify(store.getState()));
+})
 
 ReactDOM.render(
   <React.StrictMode>
