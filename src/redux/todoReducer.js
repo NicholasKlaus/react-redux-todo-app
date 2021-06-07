@@ -1,4 +1,4 @@
-import {CREATE_TODO, DELETE_TODO, TOGGLE_TODO} from './types';
+import { CREATE_TODO, DELETE_TODO, TOGGLE_TODO } from './types';
 
 const initialState = {
   todos: [

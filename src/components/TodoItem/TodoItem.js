@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button, InputGroup} from 'react-bootstrap';
-import {useDispatch} from 'react-redux';
-import {toggleTodo, deleteTodo} from '../../redux/actions';
+import { Button, InputGroup } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { toggleTodo, deleteTodo } from '../../redux/actions';
 
 export const TodoItem = ({todo}) => {
   const dispatch = useDispatch();

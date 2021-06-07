@@ -1,4 +1,4 @@
-import {CREATE_TODO, HIDE_ALERT, SHOW_ALERT, TOGGLE_TODO, DELETE_TODO} from "./types";
+import { CREATE_TODO, HIDE_ALERT, SHOW_ALERT, TOGGLE_TODO, DELETE_TODO } from "./types";
 
 export const AddNewTodo = (todo) => {
   return {

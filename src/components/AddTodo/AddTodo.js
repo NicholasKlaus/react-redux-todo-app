@@ -1,12 +1,8 @@
-import React, {useState} from 'react';
-import {
-  Button,
-  InputGroup,
-  FormControl
-} from 'react-bootstrap';
-import {useSelector, useDispatch} from 'react-redux';
-import {AddNewTodo, showAlert} from '../../redux/actions';
-import {Alert} from '../Alert/Alert';
+import React, { useState } from 'react';
+import { Button, InputGroup, FormControl } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import { AddNewTodo, showAlert } from '../../redux/actions';
+import { Alert } from '../Alert/Alert';
 
 export const AddTodo = () => {
   const [inputValue, setInputValue] = useState('');
@@ -23,9 +19,7 @@ export const AddTodo = () => {
       title: inputValue,
       completed: false
     }
-
     dispatch(AddNewTodo(newTodo));
-
     setInputValue("");
   }
 
